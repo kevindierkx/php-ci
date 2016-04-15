@@ -10,6 +10,7 @@ RUN apk update \
 
 # Install GIT
 RUN apk add --no-cache --virtual .persistent-deps \
+        openssh-client \
         git
 
 # Install Composer
