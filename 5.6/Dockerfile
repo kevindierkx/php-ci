@@ -3,6 +3,7 @@ MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
 
 # Install libraries
 RUN apk add --no-cache --virtual .persistent-deps \
+        icu-dev \
         libmcrypt-dev \
         openssh-client \
         git
@@ -10,6 +11,9 @@ RUN apk add --no-cache --virtual .persistent-deps \
 # Install PHP extensions
 RUN apk add --no-cache --virtual .build-deps \
         autoconf \
+        g++ \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
     && docker-php-ext-install mcrypt \
     && apk del .build-deps
 
