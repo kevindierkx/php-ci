@@ -4,7 +4,6 @@ MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
 # Install libraries
 RUN apk add --no-cache --virtual .persistent-deps \
         icu-dev \
-        libmcrypt-dev \
         openssh-client \
         git
 
