@@ -5,14 +5,15 @@ MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
 RUN apk add --no-cache --virtual .persistent-deps \
         icu-dev \
         openssh-client \
-        git
+        git \
+        libxml2-dev
 
 # Install PHP extensions
 RUN apk add --no-cache --virtual .build-deps \
         autoconf \
         g++ \
     && docker-php-ext-configure intl \
-    && docker-php-ext-install intl \
+    && docker-php-ext-install intl soap \
     && apk del .build-deps
 
 # Install Composer
