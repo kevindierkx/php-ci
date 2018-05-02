@@ -14,6 +14,7 @@ RUN apk add --no-cache --virtual .build-deps \
         g++ \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl soap \
+    && docker-php-ext-enable soap \
     && apk del .build-deps
 
 # Install Composer
