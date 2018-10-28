@@ -1,10 +1,6 @@
 FROM kevindierkx/php-ci:7.1
 MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
 
-# Install libraries
-RUN apk add --no-cache --virtual .persistent-deps \
-        make
-
 # Install xdebug
 RUN apk add --no-cache --virtual .build-deps \
         autoconf \
