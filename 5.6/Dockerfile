@@ -1,6 +1,9 @@
 FROM php:5.6-alpine
 MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
 
+# Setup configs
+COPY config/memory.ini $PHP_INI_DIR/conf.d/
+
 # Install libraries
 RUN apk add --no-cache --virtual .persistent-deps \
         icu-dev \
