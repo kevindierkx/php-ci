@@ -22,7 +22,7 @@ RUN  apk add --no-cache --virtual .build-deps \
     && pecl install memcached \
     && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/20_memcached.ini \
     && docker-php-ext-configure intl \
-    && docker-php-ext-install intl soap pdo pdo_mysql \
+    && docker-php-ext-install intl soap pdo pdo_mysql bcmath \
     && docker-php-ext-enable soap \
     && apk del .build-deps .memcached-deps
 
