@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
         git \
         libicu-dev \
         libmcrypt-dev \
-        openssh-client \
+        netbase \
+        openssh-client
 
 # Install PHP extensions
 RUN docker-php-ext-configure intl \
