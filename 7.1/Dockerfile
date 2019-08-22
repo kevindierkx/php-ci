@@ -6,6 +6,7 @@ COPY config/memory.ini $PHP_INI_DIR/conf.d/
 
 # Install libraries
 RUN apk add --no-cache --virtual .persistent-deps \
+        bash \
         icu-dev \
         openssh-client \
         git \
