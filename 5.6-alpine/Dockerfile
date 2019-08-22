@@ -1,22 +1,25 @@
-FROM php:5.6
+FROM php:5.6-alpine
 MAINTAINER Kevin Dierkx <kevin@distortedfusion.com>
 
 # Setup configs
 COPY config/memory.ini $PHP_INI_DIR/conf.d/
 
 # Install libraries
-RUN apt-get update && apt-get install -y \
-        autoconf \
-        g++ \
-        git \
-        libicu-dev \
+RUN apk add --no-cache --virtual .persistent-deps \
+        bash \
+        icu-dev \
         libmcrypt-dev \
         openssh-client \
+        git
 
 # Install PHP extensions
-RUN docker-php-ext-configure intl \
+RUN apk add --no-cache --virtual .build-deps \
+        autoconf \
+        g++ \
+    && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-    && docker-php-ext-install mcrypt
+    && docker-php-ext-install mcrypt \
+    && apk del .build-deps
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

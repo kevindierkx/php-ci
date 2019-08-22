@@ -1,5 +1,5 @@
 FROM kevindierkx/php-ci:5.6
-MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
+MAINTAINER Kevin Dierkx <kevin@distortedfusion.com>
 
 # Install IonCube Loader
 ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/

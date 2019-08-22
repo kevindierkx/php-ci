@@ -1,5 +1,5 @@
-FROM kevindierkx/php-ci:7.1
-MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
+FROM kevindierkx/php-ci:7.1-alpine
+MAINTAINER Kevin Dierkx <kevin@distortedfusion.com>
 
 # Setup configs
 COPY config/xdebug.ini $PHP_INI_DIR/conf.d/

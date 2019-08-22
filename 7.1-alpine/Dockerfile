@@ -1,5 +1,5 @@
 FROM php:7.1-alpine
-MAINTAINER Kevin Dierkx <kevin@pcextreme.nl>
+MAINTAINER Kevin Dierkx <kevin@distortedfusion.com>
 
 # Setup configs
 COPY config/memory.ini $PHP_INI_DIR/conf.d/
