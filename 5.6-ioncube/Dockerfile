@@ -1,6 +1,10 @@
 FROM kevindierkx/php-ci:5.6
 MAINTAINER Kevin Dierkx <kevin@distortedfusion.com>
 
+# Install libraries
+RUN apt-get update && apt-get install -y \
+        rpm
+
 # Install IonCube Loader
 ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/
 
