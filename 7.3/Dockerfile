@@ -6,6 +6,7 @@ COPY config/memory.ini $PHP_INI_DIR/conf.d/
 
 # Install libraries
 RUN apt-get update && apt-get install -y \
+        alien \
         autoconf \
         g++ \
         git \
