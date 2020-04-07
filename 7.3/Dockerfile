@@ -8,6 +8,7 @@ COPY config/memory.ini $PHP_INI_DIR/conf.d/
 RUN apt-get update && apt-get install -y \
         alien \
         autoconf \
+        fakeroot \
         g++ \
         git \
         libicu-dev \
