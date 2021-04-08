@@ -4,7 +4,7 @@ This is a collection of very specific docker images we're using for CI/CD.
 
 The 'base' images contain a collection of programs for working with [Composer](https://getcomposer.org) and creating RPM or DEB packages. The `-ioncube` images add the PHP ionCube Loader to the base images and can be used to test and build ionCube encoded applications.
 
-**We do not recommend using these images in your project.** We're not actively maintaining these images and only use these for some very basic CI/CD work on legacy projects.
+**We do not recommend using these images in your project.** We're not actively maintaining these images and only use them for some very basic CI/CD work on legacy projects.
 
 ## Security
 
