@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        image: [7.4]
+        image: [7.4, 8.0, 8.1]
         experimental: [false]
 
     continue-on-error: ${{ matrix.experimental }}
