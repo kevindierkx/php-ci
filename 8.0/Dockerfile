@@ -1,4 +1,4 @@
-FROM php:8.1.13
+FROM php:8.0.13
 
 LABEL maintainer="Kevin Dierkx <kevin@distortedfusion.com>"
 
