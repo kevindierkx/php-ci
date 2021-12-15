@@ -6,23 +6,57 @@ on:
       - master
 
 jobs:
-  build:
+  build-base:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
-        image: [7.4, 7.4-ioncube]
-        needs: []
+        image: [7.4]
         experimental: [false]
-        include:
-          - image: 7.4-ioncube
-            needs: 7.4
 
     continue-on-error: ${{ matrix.experimental }}
 
-    name: Image:${{ matrix.image }}
-    needs: ${{ matrix.needs }}
+    name: Base Image:${{ matrix.image }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Setup Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Image to Docker Hub
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./${{ matrix.image }}
+          tags: kevindierkx/php-ci:${{ matrix.image }}
+          push: true
+
+      - name: Image Digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+  build-ioncube:
+    runs-on: ubuntu-latest
+    needs: build-base
+
+    strategy:
+      fail-fast: true
+      matrix:
+        image: [7.4-ioncube]
+        experimental: [false]
+
+    continue-on-error: ${{ matrix.experimental }}
+
+    name: IonCube Image:${{ matrix.image }}
 
     steps:
       - name: Checkout code
