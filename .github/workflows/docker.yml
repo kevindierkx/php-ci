@@ -13,11 +13,16 @@ jobs:
       fail-fast: false
       matrix:
         image: [7.4, 7.4-ioncube]
+        needs: []
         experimental: [false]
+        include:
+          - image: 7.4-ioncube
+            needs: 7.4
 
     continue-on-error: ${{ matrix.experimental }}
 
     name: Image:${{ matrix.image }}
+    needs: ${{ matrix.needs }}
 
     steps:
       - name: Checkout code
