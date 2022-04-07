@@ -8,17 +8,18 @@ COPY config/memory.ini $PHP_INI_DIR/conf.d/
 # Install libraries
 RUN apt-get update \
     && apt-get install -y \
-        rpm \
         alien \
         autoconf \
         fakeroot \
         g++ \
         git \
         libicu-dev \
+        libzip-dev \
         netbase \
         openssh-client \
-        unzip \
-        libzip-dev
+        rpm \
+        rsync \
+        unzip
 
 # Install PHP extensions
 RUN docker-php-ext-configure intl \
