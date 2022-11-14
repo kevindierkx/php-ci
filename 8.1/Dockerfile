@@ -22,8 +22,8 @@ RUN apt-get update \
         unzip
 
 # Install PHP extensions
-RUN docker-php-ext-configure exif \
-    && docker-php-ext-configure intl \
+RUN docker-php-ext-configure intl \
+    && docker-php-ext-install exif \
     && docker-php-ext-install intl \
     && docker-php-ext-install zip
 
