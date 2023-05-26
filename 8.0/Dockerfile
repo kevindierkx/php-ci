@@ -14,6 +14,7 @@ RUN apt-get update \
         g++ \
         git \
         libicu-dev \
+        libxml2-dev \
         libzip-dev \
         netbase \
         openssh-client \
