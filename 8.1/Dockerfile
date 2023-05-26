@@ -23,6 +23,9 @@ RUN apt-get update \
 
 # Install PHP extensions
 RUN docker-php-ext-configure intl \
+    && docker-php-ext-install bcmath \
+    && docker-php-ext-install soap \
+    && docker-php-ext-install xml \
     && docker-php-ext-install exif \
     && docker-php-ext-install intl \
     && docker-php-ext-install zip
