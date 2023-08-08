@@ -16,6 +16,7 @@ RUN apt-get update \
         libicu-dev \
         libxml2-dev \
         libzip-dev \
+        libmagickwand-dev \
         netbase \
         openssh-client \
         rpm \
@@ -23,6 +24,8 @@ RUN apt-get update \
         unzip
 
 # Install PHP extensions
+RUN pecl install imagick
+
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install exif \
