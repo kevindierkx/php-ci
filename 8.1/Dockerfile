@@ -23,18 +23,18 @@ RUN apt-get update \
         rsync \
         unzip
 
-# Install PHP extensions
-RUN pecl install imagick
-
+# Configure, Install and Enable PHP extensions
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install exif \
-    && docker-php-ext-install imagick \
     && docker-php-ext-install intl \
     && docker-php-ext-install pcntl \
     && docker-php-ext-install soap \
     && docker-php-ext-install xml \
     && docker-php-ext-install zip
+
+RUN pecl install imagick \
+    && docker-php-ext-enable imagick
 
 RUN apt-get -y autoremove \
     && apt-get clean \
