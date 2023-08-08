@@ -23,13 +23,14 @@ RUN apt-get update \
         unzip
 
 # Install PHP extensions
-RUN docker-php-ext-configure intl \
-    && docker-php-ext-install bcmath \
-    && docker-php-ext-install soap \
-    && docker-php-ext-install xml \
+RUN docker-php-ext-configure bcmath \
     && docker-php-ext-install exif \
+    && docker-php-ext-install imagick \
+    && docker-php-ext-install intl \
     && docker-php-ext-install intl \
     && docker-php-ext-install pcntl \
+    && docker-php-ext-install soap \
+    && docker-php-ext-install xml \
     && docker-php-ext-install zip
 
 RUN apt-get -y autoremove \
