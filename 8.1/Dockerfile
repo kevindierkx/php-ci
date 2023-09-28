@@ -27,6 +27,7 @@ RUN apt-get update \
 RUN docker-php-ext-configure intl \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install exif \
+    && docker-php-ext-install gd \
     && docker-php-ext-install intl \
     && docker-php-ext-install pcntl \
     && docker-php-ext-install soap \
