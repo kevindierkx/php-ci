@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        image: ['7.4', '8.0', '8.1', '8.3']
+        image: ['7.4', '8.0', '8.1', '8.3', '8.4']
         experimental: [false]
 
     continue-on-error: ${{ matrix.experimental }}
